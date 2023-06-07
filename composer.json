@@ -1,0 +1,20 @@
+{
+  "name": "drs/module-security-extension",
+  "version": "1.0.0",
+  "description": "DRS Magento Integration",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "drs\\SecurityExtension\\": ""
+    }
+  }
+}
