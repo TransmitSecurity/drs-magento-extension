@@ -10,8 +10,6 @@ class Index extends Action
     protected ScopeConfigInterface $scopeConfig;
     protected JsonFactory $resultJsonFactory;
 
-    protected $customerSession;
-
     /**
      * @param Context $context
      * @param ScopeConfigInterface $scopeConfig
@@ -20,12 +18,10 @@ class Index extends Action
     public function __construct(
         Context $context,
         ScopeConfigInterface $scopeConfig,
-        JsonFactory $resultJsonFactory,
-        \Magento\Customer\Model\Session $customerSession
+        JsonFactory $resultJsonFactory
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->resultJsonFactory = $resultJsonFactory;
-        $this->customerSession = $customerSession;
         parent::__construct($context);
     }
     /**
@@ -33,13 +29,9 @@ class Index extends Action
      */
     public function execute(): Json
     {
-        $customerId = null;
-        if($this->customerSession->getCustomer() !== null){
-            $customerId = $this->customerSession->getCustomer()->getId();
-        }
+
         $clientId = $this->scopeConfig->getValue('security_extension_section/security_extension_group/client_id');
-        $clientSec = $this->scopeConfig->getValue('security_extension_section/security_extension_group/client_secret');
         $resultJson = $this->resultJsonFactory->create();
-        return $resultJson->setData(['client_id' => $clientId, 'client_secret' => $clientSec, 'customer_id' => $customerId]);
+        return $resultJson->setData(['client_id' => $clientId]);
     }
 }
