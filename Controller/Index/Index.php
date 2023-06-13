@@ -1,10 +1,12 @@
 <?php
-namespace drs\SecurityExtension\Controller\Index;
+namespace TransmitSecurity\DrsSecurityExtension\Controller\Index;
+
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
+
 class Index extends Action
 {
     protected ScopeConfigInterface $scopeConfig;

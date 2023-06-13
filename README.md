@@ -16,4 +16,5 @@ Use Composer (see composer.json), follow these steps in the command line:
 2. composer require drs/module-security-extension dev-main
 3. php bin/magento module:enable TransmitSecurity_DrsSecurityExtension
 4. php bin/magento setup:upgrade
+5. php bin/magento setup:di:compile
 ```

@@ -1,10 +1,11 @@
 {
   "name": "drs/module-security-extension",
-  "version": "1.0.0",
-  "description": "DRS Magento Integration",
+  "version": "1.1.0",
+  "description": "Transmit Security DRS Magento Integration",
   "type": "magento2-module",
   "require": {
-    "magento/framework": "*"
+    "php": ">=7.4",
+    "magento/framework": ">=100.1.0"
   },
   "license": [
     "Proprietary"
@@ -14,7 +15,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "drs\\SecurityExtension\\": ""
+      "TransmitSecurity\\DrsSecurityExtension\\": ""
     }
   }
 }
