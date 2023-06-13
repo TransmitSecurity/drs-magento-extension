@@ -11,8 +11,15 @@ class OrderManagement
     protected ScopeConfigInterface $scopeConfig;
 
     /**
+     * @param ScopeConfigInterface $scopeConfig
+     */
+    public function __construct(
+        ScopeConfigInterface $scopeConfig
+    ) {
+        $this->scopeConfig = $scopeConfig;
+    }
+    /**
      * @param OrderManagementInterface $subject
-     * @param ScopeConfigInterface     $scopeConfig
      * @param OrderInterface           $order
      *
      * @return OrderInterface[]
@@ -20,7 +27,6 @@ class OrderManagement
      */
     public function beforePlace(
         OrderManagementInterface $subject,
-        ScopeConfigInterface $scopeConfig,
         OrderInterface $order
     ): array {
         $enableDeny = $this->scopeConfig->getValue('security_extension_section/security_extension_group/enable_deny');

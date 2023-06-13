@@ -1,5 +1,5 @@
 console.log("Loading DRS Script");
-require(['jquery', 'Magento_Customer/js/customer-data'], async function($, customerData) {
+require(['jquery', 'Magento_Customer/js/customer-data'], function($, customerData) {
     console.log("Starting DRS Script");
 
     async function getTSSDKClientId() {
@@ -21,7 +21,7 @@ require(['jquery', 'Magento_Customer/js/customer-data'], async function($, custo
         console.log("handleTSSDK");
         const clientId = await getTSSDKClientId();
         await window.tsPlatform.initialize({ clientId });
-        let customerId = customerData.get('customer')().id;
+        let customerId = customerData.get("customer")().websiteId;
 
         if (customerId) {
             console.log("handleTSSDK setAuthenticatedUser");

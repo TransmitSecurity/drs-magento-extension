@@ -4,7 +4,8 @@ define(['mage/utils/wrapper'], function (wrapper) {
     return function (placeOrderAction) {
         return wrapper.wrap(placeOrderAction, async function (originalAction, paymentData, redirectOnSuccess) {
             const actionResponse = await window.tsPlatform.drs.triggerActionEvent("checkout");
-            paymentData['actionToken'] = actionResponse.actionToken;
+            console.log(actionResponse);
+            paymentData['additional_data'] = { actionToken: actionResponse.actionToken };
             return originalAction(paymentData, redirectOnSuccess);
         });
     };
