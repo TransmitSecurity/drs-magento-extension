@@ -1,6 +1,6 @@
 <!-- File: Your_Extension/view/frontend/layout/default.xml -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <script src="TransmitSecurity_DrsSecurityExtension::js/script.js"/>
+        <script src="TransmitSecurity_DrsSecurityExtension::js/sdk_init.js"/>
     </head>
 </page>

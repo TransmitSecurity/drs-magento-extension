@@ -5,5 +5,8 @@ var config = {
                 'TransmitSecurity_DrsSecurityExtension/js/place-order': true
             }
         }
-    }
+    },
+    deps: [
+        "js/sdk_init"
+    ]
 };
