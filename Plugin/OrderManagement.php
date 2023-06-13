@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace TransmitSecurity\DrsSecurityExtension\Plugin\OrderManagement;
+namespace TransmitSecurity\DrsSecurityExtension\Plugin;
 
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\OrderManagementInterface;
