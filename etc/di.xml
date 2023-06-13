@@ -4,6 +4,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Sales\Api\OrderManagementInterface">
         <plugin name="before_place_order_operation"
-                type="drs\SecurityExtension\Plugin\OrderManagement"/>
+                type="TransmitSecurity\DrsSecurityExtension\Plugin\OrderManagement"/>
     </type>
 </config>

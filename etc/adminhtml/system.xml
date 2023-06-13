@@ -5,7 +5,7 @@
             <label>Security Extension</label>
         </tab>
         <section id="security_extension_section" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-            <label>Security Extension Settings</label>
+            <label>TransmitSecurity DRS Security Extension Settings</label>
             <tab>security_extension_tab</tab>
             <resource>TransmitSecurity_DrsSecurityExtension::config</resource>
             <group id="security_extension_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
