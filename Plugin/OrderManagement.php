@@ -32,8 +32,11 @@ class OrderManagement
         OrderManagementInterface $subject,
         OrderInterface $order
     ): array {
+        echo 'Handling beforePlace DRS plugin';
         $enableDeny = $this->scopeConfig->getValue('security_extension_section/security_extension_group/enable_deny');
+        echo $enableDeny;
         $actionToken = $order->getData("actionToken");
+        echo $actionToken;
         if ($actionToken == null || $enableDeny == null || $enableDeny == false) {
             return [$order];
         }
