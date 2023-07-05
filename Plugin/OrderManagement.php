@@ -5,6 +5,7 @@ namespace TransmitSecurity\DrsSecurityExtension\Plugin;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\OrderManagementInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Encryption\EncryptorInterface;
 
 class OrderManagement
 {
@@ -14,9 +15,11 @@ class OrderManagement
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        EncryptorInterface $encryptor,
     ) {
         $this->scopeConfig = $scopeConfig;
+        $this->encryptor = $encryptor;
     }
     /**
      * @param OrderManagementInterface $subject
@@ -68,10 +71,11 @@ class OrderManagement
     private function getAccessToken() {
         $tokenEndpoint = 'https://api.transmitsecurity.io/oidc/token';
         $clientId = $this->scopeConfig->getValue('security_extension_section/security_extension_group/client_id');
-        $clientId = $this->scopeConfig->getValue('security_extension_section/security_extension_group/client_secret');
+        $clientSecretRaw = $this->scopeConfig->getValue('security_extension_section/security_extension_group/client_secret');
+        $clientSecret = $this->encryptor->decrypt($clientSecretRaw);
 
         $params = [
-            'client_id' => $clientID,
+            'client_id' => $clientId,
             'client_secret' => $clientSecret,
             'grant_type' => 'client_credentials',
             'resource' => 'https://riskid.identity.security'
