@@ -10,6 +10,7 @@ use Magento\Framework\Encryption\EncryptorInterface;
 class OrderManagement
 {
     protected ScopeConfigInterface $scopeConfig;
+    protected EncryptorInterface $encryptor;
 
     /**
      * @param ScopeConfigInterface $scopeConfig
