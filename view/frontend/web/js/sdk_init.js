@@ -21,11 +21,11 @@ require(['jquery', 'Magento_Customer/js/customer-data'], function($, customerDat
         console.log("handleTSSDK");
         const clientId = await getTSSDKClientId();
         let customer = customerData.get("customer")();
-        let customerId = null;
+        let userId = null;
         if (customer) {
-            customerId = customer.id;
+            userId = customer.id;
         }
-        console.log("handleTSSDK setAuthenticatedUser", customerId);
+        console.log("handleTSSDK setAuthenticatedUser", userId);
         await window.tsPlatform.initialize({ clientId, drs: { userId } });
     }
 
