@@ -23,7 +23,7 @@ require(['jquery', 'Magento_Customer/js/customer-data'], function($, customerDat
         let customer = customerData.get("customer")();
         let userId = null;
         if (customer) {
-            userId = customer.id;
+            userId = customer.websiteId;
         }
         console.log("handleTSSDK setAuthenticatedUser", userId);
         await window.tsPlatform.initialize({ clientId, drs: { userId } });

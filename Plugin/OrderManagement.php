@@ -14,6 +14,7 @@ class OrderManagement
 
     /**
      * @param ScopeConfigInterface $scopeConfig
+     * @param EncryptorInterface encryptor
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
