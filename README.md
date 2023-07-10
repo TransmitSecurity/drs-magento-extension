@@ -13,8 +13,8 @@ https://developer.transmitsecurity.com/guides/risk/quick_start_web/
 Use Composer (see composer.json), follow these steps in the command line:
 ```
 1. composer config repositories.drs-magento-extension git git@github.com:TransmitSecurity/drs-magento-extension.git
-2. composer require drs/module-security-extension dev-main
-3. php bin/magento module:enable TransmitSecurity_DrsSecurityExtension
-4. php bin/magento setup:upgrade
-5. php bin/magento setup:di:compile
+2. composer require drs/module-security-extension dev-dev-10
+ php bin/magento module:enable TransmitSecurity_DrsSecurityExtension; php bin/magento setup:upgrade; php bin/magento setup:di:compile
 ```
+
+php bin/magento module:list
