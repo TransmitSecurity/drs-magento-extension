@@ -6,7 +6,7 @@ use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\OrderManagementInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Encryption\EncryptorInterface;
-use Psr\Log\LoggerInterface
+use Psr\Log\LoggerInterface;
 
 class OrderManagement
 {
