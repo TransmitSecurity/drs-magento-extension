@@ -39,9 +39,13 @@ class OrderManagement
     ): array {
         $this->logger->info('Handling beforePlace DRS plugin');
         $enableDeny = $this->scopeConfig->getValue('security_extension_section/security_extension_group/enable_deny');
+        $this->logger->info('enableDeny value:');
         $this->logger->info($enableDeny);
-        $actionToken = $order->getData('actionToken');
-        $this->logger->info($actionToken);
+        $this->logger->info('order data:');
+        $this->logger->info($order);
+        $additionalData = $order->getData('additional_data');
+        $this->logger->info($additionalData);
+        $actionToken = $additionalData['actionToken'];
 
         if ($actionToken == null || $enableDeny == null || $enableDeny == false) {
             return [$order];
