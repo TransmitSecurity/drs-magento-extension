@@ -44,6 +44,7 @@ class OrderManagement
         $this->logger->info('order data:');
         $this->logger->info($order);
         $additionalData = $order->getData('additional_data');
+        $this->logger->info('additionalData in order:');
         $this->logger->info($additionalData);
         $actionToken = $additionalData['actionToken'];
 
