@@ -42,13 +42,13 @@ class OrderManagement
         $this->logger->info('enableDeny value:');
         $this->logger->info($enableDeny);
         $this->logger->info('order data:');
-        $this->logger->info($order);
-        $additionalData = $order->getData('additional_data');
-        $this->logger->info('additionalData in order:');
-        $this->logger->info($additionalData);
-        $actionToken = $additionalData['actionToken'];
+        $this->logger->info(strval($order));
+        $actionToken = $order->getData('action_token');
+        $this->logger->info('actionToken content:');
+        $this->logger->info(strval($actionToken));
+        
 
-        if ($actionToken == null || $enableDeny == null || $enableDeny == false) {
+        if ($actionToken == null || $enableDeny == null || $enableDeny == false || $enableDeny == 0) {
             return [$order];
         }
         $recommendation = $this->getRecommendation($actionToken);
@@ -56,7 +56,7 @@ class OrderManagement
         if ($recommendation == 'DENY') {
             $this->logger->info('Deny recommendation');
             return [];
-       }
+        }
         return [$order];
     }
 
