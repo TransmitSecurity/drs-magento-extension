@@ -37,6 +37,18 @@ class OrderManagement
         OrderManagementInterface $subject,
         OrderInterface $order
     ): array {
+        try {
+            return $this->beforePlaceUnsafe($subject, $order);
+        } catch (Exception $e) {
+            $this->logger->error($e->getMessage());
+            return [$order];
+        }
+    }
+
+    public function beforePlaceUnsafe(
+        OrderManagementInterface $subject,
+        OrderInterface $order
+    ): array {
         $this->logger->info('Handling beforePlace DRS plugin');
         $enableDeny = $this->scopeConfig->getValue('security_extension_section/security_extension_group/enable_deny');
         $this->logger->info('enableDeny value:');
