@@ -38,7 +38,7 @@ class OrderManagement
         OrderInterface $order
     ): array {
         try {
-            $this->beforePlaceUnsafe($subject, $order);
+            return $this->beforePlaceUnsafe($subject, $order);
         } catch (Exception $e) {
             $this->logger->error($e->getMessage());
             return [$order];
